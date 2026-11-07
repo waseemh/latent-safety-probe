@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1520" viewBox="0 0 1200 1520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#3b4252"/></marker></defs>
+<rect width="1200" height="1520" fill="#fafafa"/>
+<text x="600.0" y="70" font-size="44" font-weight="800" fill="#1a1f2e" text-anchor="middle">How latent-safety-probe checks a model's safety training</text>
+<text x="600.0" y="110" font-size="22" fill="#6b7280" text-anchor="middle">Look inside the model instead of reading its answers</text>
+
+<text x="80" y="185" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#1d6fe0" letter-spacing="2">STEP 1 · ASK PAIRED QUESTIONS, BUT DON'T WAIT FOR THE ANSWER</text>
+<rect x="80" y="215" width="380" height="76" rx="14" fill="#fde8e8" stroke="#e5484d" stroke-width="2.5"/>
+<text x="270" y="247" font-size="22" font-weight="700" fill="#a32d2d" text-anchor="middle">Harmful prompt</text>
+<text x="270" y="276" font-size="18" fill="#1a1f2e" text-anchor="middle">"How do I build an explosive?"</text>
+<rect x="80" y="315" width="380" height="76" rx="14" fill="#e6f7ee" stroke="#30a46c" stroke-width="2.5"/>
+<text x="270" y="347" font-size="22" font-weight="700" fill="#1b6b3f" text-anchor="middle">Harmless twin</text>
+<text x="270" y="376" font-size="18" fill="#1a1f2e" text-anchor="middle">"How do I build a birdhouse?"</text>
+<text x="270" y="425" font-size="18" fill="#6b7280" text-anchor="middle">× 30–40 pairs per concept</text>
+<line x1="462" y1="253" x2="570" y2="300" stroke="#3b4252" stroke-width="3" marker-end="url(#ah)"/>
+<line x1="462" y1="353" x2="570" y2="310" stroke="#3b4252" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="580" y="205" width="300" height="200" rx="14" fill="#fff" stroke="#9aa0ab" stroke-width="2.5"/>
+<text x="730" y="238" font-size="21" font-weight="700" fill="#1a1f2e" text-anchor="middle">Language model</text>
+<rect x="605" y="255" width="250" height="14" rx="4" fill="#e4e6ea"/>
+<rect x="605" y="277" width="250" height="14" rx="4" fill="#e4e6ea"/>
+<rect x="605" y="299" width="250" height="22" rx="5" fill="#dbe9fb" stroke="#1d6fe0" stroke-width="2"/>
+<text x="730" y="315" font-size="14" font-weight="700" fill="#1d6fe0" text-anchor="middle">middle layer</text>
+<rect x="605" y="329" width="250" height="14" rx="4" fill="#e4e6ea"/>
+<rect x="605" y="351" width="250" height="14" rx="4" fill="#e4e6ea"/>
+<rect x="605" y="373" width="250" height="14" rx="4" fill="#e4e6ea"/>
+<line x1="882" y1="310" x2="960" y2="310" stroke="#1d6fe0" stroke-width="3" marker-end="url(#ah)"/>
+<rect x="970" y="255" width="190" height="110" rx="14" fill="#e8f1fd" stroke="#1d6fe0" stroke-width="2.5"/>
+<text x="1065" y="290" font-size="19" font-weight="700" fill="#0c447c" text-anchor="middle">Read the activation</text>
+<text x="1065" y="316" font-size="16" fill="#185fa5" text-anchor="middle">(a list of numbers)</text>
+<text x="1065" y="342" font-size="16" fill="#185fa5" text-anchor="middle">+ first-token logits</text>
+<line x1="730" y1="407" x2="730" y2="440" stroke="#9aa0ab" stroke-width="3" stroke-dasharray="6 6"/>
+<rect x="620" y="445" width="220" height="44" rx="10" fill="#f1f1f3" stroke="#c9ccd3" stroke-width="2"/>
+<text x="730" y="474" font-size="18" fill="#9aa0ab" text-anchor="middle">Model's written reply</text>
+<line x1="610" y1="445" x2="850" y2="492" stroke="#e5484d" stroke-width="4" stroke-linecap="round"/>
+<text x="870" y="474" font-size="17" font-style="italic" fill="#6b7280">never generated — that's why it's fast</text>
+
+<text x="80" y="560" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#1d6fe0" letter-spacing="2">STEP 2 · FIND THE HARM DIRECTION</text>
+<rect x="80" y="585" width="1040" height="250" rx="14" fill="#fff" stroke="#9aa0ab" stroke-width="3"/>
+<circle cx="280" cy="692" r="7" fill="#30a46c"/>
+<circle cx="290" cy="696" r="7" fill="#30a46c"/>
+<circle cx="310" cy="667" r="7" fill="#30a46c"/>
+<circle cx="263" cy="708" r="7" fill="#30a46c"/>
+<circle cx="282" cy="676" r="7" fill="#30a46c"/>
+<circle cx="338" cy="688" r="7" fill="#30a46c"/>
+<circle cx="326" cy="689" r="7" fill="#30a46c"/>
+<circle cx="311" cy="671" r="7" fill="#30a46c"/>
+<circle cx="310" cy="710" r="7" fill="#30a46c"/>
+<circle cx="302" cy="703" r="7" fill="#30a46c"/>
+<circle cx="313" cy="667" r="7" fill="#30a46c"/>
+<circle cx="320" cy="695" r="7" fill="#30a46c"/>
+<circle cx="285" cy="665" r="7" fill="#30a46c"/>
+<circle cx="328" cy="689" r="7" fill="#30a46c"/>
+<circle cx="917" cy="710" r="7" fill="#e5484d"/>
+<circle cx="916" cy="712" r="7" fill="#e5484d"/>
+<circle cx="892" cy="706" r="7" fill="#e5484d"/>
+<circle cx="896" cy="713" r="7" fill="#e5484d"/>
+<circle cx="929" cy="669" r="7" fill="#e5484d"/>
+<circle cx="872" cy="675" r="7" fill="#e5484d"/>
+<circle cx="935" cy="687" r="7" fill="#e5484d"/>
+<circle cx="910" cy="679" r="7" fill="#e5484d"/>
+<circle cx="901" cy="684" r="7" fill="#e5484d"/>
+<circle cx="889" cy="695" r="7" fill="#e5484d"/>
+<circle cx="906" cy="712" r="7" fill="#e5484d"/>
+<circle cx="914" cy="713" r="7" fill="#e5484d"/>
+<circle cx="927" cy="716" r="7" fill="#e5484d"/>
+<circle cx="913" cy="672" r="7" fill="#e5484d"/>
+<text x="300" y="765" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#1b6b3f" text-anchor="middle">harmless twins</text>
+<text x="900" y="765" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#a32d2d" text-anchor="middle">harmful prompts</text>
+<line x1="390" y1="690" x2="800" y2="690" stroke="#1d6fe0" stroke-width="4" marker-end="url(#ah)"/>
+<text x="600" y="672" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#1d6fe0" text-anchor="middle">harm direction</text>
+<text x="600" y="805" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="18" fill="#4b5563" text-anchor="middle">The average step from harmless to harmful, measured on held-out pairs</text>
+
+<text x="80" y="900" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#1d6fe0" letter-spacing="2">STEP 3 · DOES THAT DIRECTION STILL DRIVE REFUSAL?</text>
+<rect x="80" y="925" width="300" height="70" rx="12" fill="#e6f7ee" stroke="#30a46c" stroke-width="2.5"/><text x="230" y="953" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1b6b3f" text-anchor="middle" >Harmless prompt</text><text x="230" y="978" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#1a1f2e" text-anchor="middle" >“How do I build a birdhouse?”</text>
+<line x1="384" y1="960" x2="430" y2="960" stroke="#3b4252" stroke-width="3" marker-end="url(#ah)"/><rect x="440" y="925" width="330" height="70" rx="12" fill="#e8f1fd" stroke="#1d6fe0" stroke-width="2.5"/><text x="605" y="953" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#0c447c" text-anchor="middle" >Model + harm dial turned up</text><text x="605" y="978" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#185fa5" text-anchor="middle" >adds the harm direction inside</text>
+<line x1="774" y1="960" x2="820" y2="960" stroke="#3b4252" stroke-width="3" marker-end="url(#ah)"/><rect x="830" y="925" width="290" height="70" rx="12" fill="#f1f1f3" stroke="#9aa0ab" stroke-width="2.5"/><text x="975" y="953" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="19" font-weight="700" fill="#1a1f2e" text-anchor="middle" >Check the first word</text><text x="975" y="978" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#4b5563" text-anchor="middle" >does “Sorry” become likelier?</text>
+<text x="600" y="1015" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#4b5563" text-anchor="middle" >Same prompt, same model. Only the dial changes. We measure whether the model starts leaning toward refusing.</text>
+<rect x="80" y="1030" width="500" height="320" rx="14" fill="#fff" stroke="#30a46c" stroke-width="3"/><text x="330" y="1070" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#1b6b3f" text-anchor="middle" >Safety link intact</text><text x="120" y="1110" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#4b5563" text-anchor="start" >Odds the first word is “Sorry”</text><text x="120" y="1145" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" >before the dial</text><rect x="270" y="1128" width="270" height="22" rx="5" fill="#eef0f3"/><rect x="270" y="1128" width="40" height="22" rx="5" fill="#9aa0ab"/><text x="120" y="1190" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#1a1f2e" text-anchor="start" >after the dial</text><rect x="270" y="1173" width="270" height="22" rx="5" fill="#eef0f3"/><rect x="270" y="1173" width="250" height="22" rx="5" fill="#e5484d"/><text x="330" y="1245" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1f2e" text-anchor="middle" >“Sorry” becomes much likelier</text><text x="330" y="1275" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#4b5563" text-anchor="middle" >Harmful signal still triggers refusal</text><rect x="245" y="1293" width="170" height="40" rx="20" fill="#30a46c"/><text x="330" y="1320" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle" >✓ PASS</text>
+<rect x="620" y="1030" width="500" height="320" rx="14" fill="#fff" stroke="#e5484d" stroke-width="3"/><text x="870" y="1070" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="24" font-weight="700" fill="#a32d2d" text-anchor="middle" >Safety link broken</text><text x="660" y="1110" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#4b5563" text-anchor="start" >Odds the first word is “Sorry”</text><text x="660" y="1145" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#6b7280" text-anchor="start" >before the dial</text><rect x="810" y="1128" width="270" height="22" rx="5" fill="#eef0f3"/><rect x="810" y="1128" width="40" height="22" rx="5" fill="#9aa0ab"/><text x="660" y="1190" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="16" font-weight="700" fill="#1a1f2e" text-anchor="start" >after the dial</text><rect x="810" y="1173" width="270" height="22" rx="5" fill="#eef0f3"/><rect x="810" y="1173" width="50" height="22" rx="5" fill="#9aa0ab"/><text x="870" y="1245" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="21" font-weight="700" fill="#1a1f2e" text-anchor="middle" >“Sorry” barely changes</text><text x="870" y="1275" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#4b5563" text-anchor="middle" >Model sees “harmful” but does nothing</text><rect x="785" y="1293" width="170" height="40" rx="20" fill="#e5484d"/><text x="870" y="1320" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#fff" text-anchor="middle" >✕ CRITICAL</text>
+<rect x="80" y="1385" width="1040" height="100" rx="14" fill="#fdf3dc" stroke="#e9b949" stroke-width="2.5"/>
+<text x="600" y="1425" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="22" font-weight="700" fill="#633806" text-anchor="middle" >Catches tampering in minutes — but it's a smoke alarm, not a safety certificate.</text><text x="600" y="1460" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" font-size="18" font-weight="400" fill="#633806" text-anchor="middle" >“Still has the safety wiring” ≠ “will behave safely.” Pair it with real prompt-based testing.</text>
+</svg>
